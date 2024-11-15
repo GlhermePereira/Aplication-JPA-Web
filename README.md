@@ -12,7 +12,7 @@ Este projeto é um exemplo de CRUD (Create, Read, Update, Delete) de alunos, imp
    Maven é utilizado para gerenciar as dependências e compilar o projeto. Você pode verificar a versão instalada com o comando:
    ```bash
    mvn -v
-## Criar Aluno
+## 1. Criar Aluno
 * **Método**: POST
 * **Endpoint**: /alunos
 * **Descrição**: Cria um novo aluno no banco de dados.
@@ -20,7 +20,60 @@ Este projeto é um exemplo de CRUD (Create, Read, Update, Delete) de alunos, imp
   
   ```json
   {
-    "nome": "João Silva Sadasdas",
+    "nome": "João Silva da Silva",
     "cpf": "1234567890231"
   }
+## 2. Listar Todos os Alunos
+* **Método**: GET
+* **Endpoint**: /alunos
+* **Descrição**: Retorna a lista de todos os alunos cadastrados.
+* **Resposta**:
+  * **Status 200 OK**: Retorna todos os alunos.
+
+  **Exemplo de resposta**:
+  
+  ```json
+  [
+    {
+      "id": 1,
+      "nome": "João Silva Sadasdas",
+      "cpf": "123456789023"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Oliveira",
+      "cpf": "98765432100"
+    }
+  ]
+  
+## 3. Buscar Aluno por ID
+* **Método**: GET
+* **Endpoint**: /alunos/{id}
+* **Descrição**: Retorna os detalhes de um aluno específico pelo ID.
+* **Exemplo de Requisição**: GET /alunos/2
+* **Resposta**:
+  * **Status 200 OK**: Retorna os dados do aluno.
+
+  **Exemplo de resposta**:
+  
+  ```json
+  {
+    "id": 2,
+    "nome": "Maria Oliveira",
+    "cpf": "98765432100"
+  }
+  
+## 4. Atualizar Aluno
+* **Método**: PUT
+* **Endpoint**: /alunos/{id}
+* **Descrição**: Atualiza os dados de um aluno existente.
+* **Exemplo de Requisição**: PUT /alunos/2
+* **Corpo em JSON**:
+  
+  ```json
+  {
+    "nome": "Carlos Andrade",
+    "cpf": "98765432100"
+  }
+
 
